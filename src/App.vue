@@ -1,30 +1,21 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <el-button>按钮1</el-button>
+    <div style="font-size: 20px">
+      <!-- 由于SVG图标默认不携带任何属性 -->
+      <!-- 你需要直接提供它们 -->
+      <Edit style="width: 1em; height: 1em; margin-right: 8px" />
+      <Share style="width: 1em; height: 1em; margin-right: 8px" />
+      <Delete style="width: 1em; height: 1em; margin-right: 8px" />
+      <Search style="width: 1em; height: 1em; margin-right: 8px" />
+    </div>
+  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup>
 
-nav {
-  padding: 30px;
+</script>
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+<style lang="scss" scoped>
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
