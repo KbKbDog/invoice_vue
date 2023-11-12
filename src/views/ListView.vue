@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <router-link to="/login">登录</router-link>
+  <div class="List">
   </div>
 </template>
 
@@ -8,7 +7,7 @@
 
 
 export default {
-  name: 'HomeView',
+  name: 'ListView',
   components: {
 
   }
