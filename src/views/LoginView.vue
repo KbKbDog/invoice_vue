@@ -22,7 +22,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import axios from "axios";
+import Service from "@/utils/axios";
 
 const form = reactive({
   name: '',
@@ -30,15 +30,15 @@ const form = reactive({
 })
 
 const onSubmit = () => {
-
-  axios.get('/user', {
+  const that =this;
+  Service.post('/user', {
     params: {
       ID: form.name,
       Password: form.password
     }
   }).then(function (response) {
     console.log(response);
-    this.$router.push("/List");
+    that.$router.push("/list");
     localStorage.setItem("token",response.data);
   }).catch(function (error) {
     console.log(error);
