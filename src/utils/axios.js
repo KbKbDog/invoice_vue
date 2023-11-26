@@ -1,5 +1,5 @@
 //放置请求接口
-const url = 'http://localhost:8081/'
+const url = 'http://localhost:8081/api'
 import axios from "axios";
 
 const Service = axios.create({
@@ -11,7 +11,7 @@ const Service = axios.create({
 // 请求拦截器
 Service.interceptors.request.use(
     function(config){
-        config.headers.common['token'] = localStorage.getItem("token")===null?null:localStorage.getItem("token");
+       // config.headers.common['token'] = localStorage.getItem("token")===null?null:localStorage.getItem("token");
         return config;
     },
     function (error){
@@ -19,14 +19,13 @@ Service.interceptors.request.use(
     })
 
 // 响应拦截器
-Service.interceptors.response.use(
-    function(response){
-        console.log(response);
-        const dataAxios = response.data;
-        return dataAxios;
-    },
-    function (error){
-        return error;
-    })
-
+// 添加响应拦截器
+Service.interceptors.response.use(function (response) {
+    // 对响应数据做点什么
+    return response.data;
+}, function (error) {
+    // 超出 2xx 范围的状态码都会触发该函数。
+    // 对响应错误做点什么
+    return Promise.reject(error);
+});
 export default Service;

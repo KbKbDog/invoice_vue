@@ -30,16 +30,15 @@ const form = reactive({
 })
 
 const onSubmit = () => {
-  const that =this;
-  Service.post('/user', {
-    params: {
-      ID: form.name,
-      Password: form.password
-    }
-  }).then(function (response) {
+  //const that =this;
+  const params= {
+    userName: form.name,
+    password: form.password
+  };
+      Service.post('/user/login', params).then(function (response) {
     console.log(response);
-    that.$router.push("/list");
-    localStorage.setItem("token",response.data);
+   // that.$router.push("/list");
+    //localStorage.setItem("token",response.data);
   }).catch(function (error) {
     console.log(error);
   });
