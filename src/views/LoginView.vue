@@ -22,7 +22,8 @@
 
 <script setup>
 import { reactive } from 'vue'
-import Service from "@/utils/axios";
+import { loginApi } from "@/api/api";
+import router from "@/router";
 
 const form = reactive({
   name: '',
@@ -30,15 +31,15 @@ const form = reactive({
 })
 
 const onSubmit = () => {
-  //const that =this;
   const params= {
     userName: form.name,
     password: form.password
   };
-      Service.post('/user/login', params).then(function (response) {
-    console.log(response);
-   // that.$router.push("/list");
-    //localStorage.setItem("token",response.data);
+  loginApi(params).then((res) => {
+    console.log(res);
+    localStorage.setItem("token",res.data.token);
+    router.push('/list');
+
   }).catch(function (error) {
     console.log(error);
   });

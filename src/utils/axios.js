@@ -1,5 +1,6 @@
 //放置请求接口
-const url = 'http://localhost:8081/api'
+//const url = 'http://localhost:8081/api'
+const url = '/api';
 import axios from "axios";
 
 const Service = axios.create({
@@ -11,7 +12,7 @@ const Service = axios.create({
 // 请求拦截器
 Service.interceptors.request.use(
     function(config){
-       // config.headers.common['token'] = localStorage.getItem("token")===null?null:localStorage.getItem("token");
+      config.headers['token'] = localStorage.getItem("token")===null?null:localStorage.getItem("token");
         return config;
     },
     function (error){

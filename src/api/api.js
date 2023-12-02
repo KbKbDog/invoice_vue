@@ -1,25 +1,16 @@
 import Service from "@/utils/axios";
 
-const get = (config) =>{
+export const loginApi=(params) => {
     return Service({
-        ...config,
-        method: 'get',
-        params: config.data
-    })
-}
-
-const post = (config) => {
-    return Service({
-        ...config,
+        url: '/user/login',
         method: 'post',
-        params: config.data
+        data: params,
     })
 }
 
-const loginApi=(data) => {
-    return post({
-        url: '/login',
-        data
+export const getListApi=() => {
+    return Service({
+        url: '/getList',
+        method: 'post',
     })
 }
-export default {get,post,loginApi}

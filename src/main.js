@@ -7,6 +7,7 @@ import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import axios from "axios";
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+axios.defaults.baseURL = '/api'
 
 
 const app = createApp(App)
