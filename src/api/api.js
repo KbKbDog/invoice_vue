@@ -1,6 +1,6 @@
 import Service from "@/utils/axios";
 
-export const loginApi=(params) => {
+export const loginApi = (params) => {
     return Service({
         url: '/user/login',
         method: 'post',
@@ -8,9 +8,22 @@ export const loginApi=(params) => {
     })
 }
 
-export const getListApi=() => {
+export const getListApi = () => {
     return Service({
         url: '/getList',
+        method: 'post',
+    })
+}
+export const downLoad = () => {
+    return Service({
+        url: '/download',
+        method: 'get',
+        responseType: 'blob'
+    })
+}
+export const addListApi = () => {
+    return Service({
+        url: '/addList',
         method: 'post',
     })
 }
